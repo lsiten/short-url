@@ -1,5 +1,5 @@
 # 依赖的镜像
-FROM node:12
+FROM node:15
 
 RUN mkdir -p /home/www/shorturl
 WORKDIR /home/www/shorturl
