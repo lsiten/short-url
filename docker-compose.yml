@@ -10,9 +10,9 @@ services:
     expose:
         - 27017
     volumes:
-        - /home/leisc/short/mongodb:/data/db
+        - ./mongodb:/data/db
   node_server:
-    build: /home/leisc/short/egg
+    build: ./
     container_name: egg-short-url
     links:
         - mongodb:mongo

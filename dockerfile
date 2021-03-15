@@ -6,4 +6,7 @@ WORKDIR /home/www/shorturl
 
 COPY . /home/www/shorturl
 
-RUN npm install && npm start
+RUN npm install
+#暴露端口给宿主机
+EXPOSE 3000
+CMD npm start
