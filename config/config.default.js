@@ -26,7 +26,7 @@ module.exports = appInfo => {
   // mongoose
   config.mongoose = {
     client: {
-      url: 'mongodb://admin:123456@mongo:27017/short?authSource=admin',
+      url: 'mongodb://mongo:27017/short',
       options: {
         useNewUrlParser:true,
         useUnifiedTopology: true,

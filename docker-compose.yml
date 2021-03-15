@@ -3,10 +3,6 @@ services:
   mongodb:
     image: mongo:latest
     container_name: mongo-db-short-url
-    environment:
-      - AUTH=yes
-      - ADMIN_USER=admin
-      - ADMIN_PASS=123456
     expose:
         - 27017
     volumes:
