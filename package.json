@@ -26,7 +26,8 @@
     "node": ">=10.0.0"
   },
   "scripts": {
-    "start": "egg-scripts start --daemon --title=egg-server-eat-node --port=3000",
+    "start": "egg-scripts start --title=egg-server-eat-node --port=3000",
+    "start:daemon": "egg-scripts start --daemon --title=egg-server-eat-node",
     "stop": "egg-scripts stop --title=egg-server-eat-node",
     "dev": "egg-bin dev",
     "debug": "egg-bin debug",
@@ -38,7 +39,7 @@
     "autod": "autod",
     "docker:start": "docker-compose up -d",
     "docker:stop": "docker-compose down",
-    "docker:restart": "npm run docker:stop && docker-compose rm && docker-compose pull && npm run docker:start"
+    "docker:restart": "npm run docker:stop && docker-compose build && docker-compose pull && npm run docker:start"
   },
   "ci": {
     "version": "10"
