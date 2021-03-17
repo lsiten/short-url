@@ -38,7 +38,7 @@
     "autod": "autod",
     "docker:start": "docker-compose up -d",
     "docker:stop": "docker-compose down",
-    "docker:restart": "npm run docker:stop && docker-compose pull && npm run docker:start"
+    "docker:restart": "npm run docker:stop && docker-compose rm && docker-compose pull && npm run docker:start"
   },
   "ci": {
     "version": "10"

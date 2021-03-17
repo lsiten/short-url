@@ -12,4 +12,6 @@ run/
 *.un~
 typings/
 .nyc_output/
-mongodb/*.[^md]
+
+!/mongodb/readme.me 
+mongodb/*
