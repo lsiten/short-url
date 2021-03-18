@@ -30,5 +30,5 @@ services:
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./nginx/https:/etc/nginx/https:rw
+      - ./nginx/https:/ssl:rw
       - ./static:/usr/share/nginx/html
