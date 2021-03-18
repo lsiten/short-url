@@ -50,7 +50,10 @@ class UrlController extends Controller {
   async create() {
     console.log('create');
     const { ctx } = this;
-    await ctx.render('url/create.pug');
+    await ctx.render('url/create.pug', {
+      HIDDEHEADER: false,
+      HIDDEFOOTER: true,
+    });
   }
 }
 

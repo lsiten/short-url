@@ -6,7 +6,7 @@ module.exports = {
     enable: true,
     package: 'egg-mongoose',
   },
-  view: {
+  pug: {
     enable: true,
     package: 'egg-view-pug'
   }
