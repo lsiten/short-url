@@ -1,7 +1,7 @@
 /* eslint valid-jsdoc: "off" */
 
 'use strict';
-const path = require('path')
+
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
@@ -26,7 +26,7 @@ module.exports = appInfo => {
   // mongoose
   config.mongoose = {
     client: {
-      url: 'mongodb://admin:123456@127.0.0.1:27017/short?authSource=admin',
+      url: 'mongodb://admin:123456@mongo:27017/short?authSource=admin',
       options: {
         useNewUrlParser:true,
         useUnifiedTopology: true,
@@ -35,21 +35,6 @@ module.exports = appInfo => {
       // mongoose global plugins, expected a function or an array of function and options
     },
   };
-  // pug
-  exports.view = {
-    defaultViewEngine: 'pug',
-    mapping: {
-      '.pug': 'pug',
-    }
-  }
-
-  exports.pug = {
-    basedir: path.join(appInfo.baseDir, 'app/view'),
-    cache: true,
-    debug: false,
-    compileDebug: true
-  }
-
   return {
     ...config,
     ...userConfig,

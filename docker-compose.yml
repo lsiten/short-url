@@ -14,6 +14,8 @@ services:
   node_server:
     build: ./
     container_name: egg-short-url
+    environment:
+      - TZ=Asia/Shanghai
     links:
       - "mongodb:mongo"
     ports:

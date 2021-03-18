@@ -46,6 +46,12 @@ class UrlController extends Controller {
     this.ctx.redirect(longUrl);
     
   }
+  // 生成短链接界面
+  async create() {
+    console.log('create');
+    const { ctx } = this;
+    await ctx.render('url/create.pug');
+  }
 }
 
 module.exports = UrlController;
