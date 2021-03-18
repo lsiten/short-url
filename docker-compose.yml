@@ -9,8 +9,8 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: 123456
     expose:
       - 27017
-    volumes:
-      - ./mongodb:/data/db
+    # volumes:
+      # - ./mongodb:/data/db
   node_server:
     build: ./
     container_name: egg-short-url
