@@ -14,7 +14,6 @@
   }
   // 初始化log数据
   function initLogsData (id) {
-    console.log(id);
     $.ajax({
       url: '/url/geturllog',
       method: 'post',
