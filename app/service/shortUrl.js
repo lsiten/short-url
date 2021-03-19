@@ -24,8 +24,12 @@ class ShortUrlService extends Service {
    * @param {*} userid 
    */
   async getLogs(userid) {
+    const now = Date.now();
     let logs = await this.ctx.model.ShortUrl.find({
       userid,
+      expireTime: {
+        $gte: now - 86400000 * 6
+      }
     }).sort({_id:-1});
     if (!logs) {
       return false;
