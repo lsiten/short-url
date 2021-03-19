@@ -7,6 +7,7 @@ class UrlController extends Controller {
   async genShortUrl() {
     const { ctx } = this;
     let longUrl = ctx.query.url || ctx.request.body.url || '';
+    let userid = ctx.query.user || ctx.request.body.user || '';
     if (!ctx) {
       ctx.body = {
         code: 400,
@@ -17,7 +18,7 @@ class UrlController extends Controller {
       };
       return false;
     }
-    const url = await this.service.shortUrl.createUrl(longUrl);
+    const url = await this.service.shortUrl.createUrl(longUrl, userid);
     ctx.body = {
       code: 200,
       data: {
@@ -25,6 +26,38 @@ class UrlController extends Controller {
       },
       message: '',
     }
+  }
+
+  async getUrlHistory () {
+    const { ctx } = this;
+    let userid = ctx.query.user || ctx.request.body.user || '';
+    if (!ctx) {
+      ctx.body = {
+        code: 400,
+        data: {
+          url: ''
+        },
+        message: 'error'
+      };
+      return false;
+    }
+
+    const logs = await this.service.shortUrl.getLogs(userid);
+    if (!logs) {
+      ctx.body = {
+        code: 400,
+        data: {
+          url: ''
+        },
+        message: 'error'
+      };
+    }
+    ctx.body = {
+      code: 200,
+      data: logs,
+      message: ''
+    };
+
   }
   /**
    * 短链接跳转

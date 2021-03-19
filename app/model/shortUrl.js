@@ -14,6 +14,10 @@ module.exports = app => {
       type: Number,
       default: 0,
     },
+    userid: {
+      type: String,
+      default: '',
+    },
     expireTime: {
       type: Number,
     },

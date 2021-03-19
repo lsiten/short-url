@@ -3,6 +3,22 @@ extends /layout/layout.pug
 block append title  
   link(href="/public/css/pages/url/create.css" type='text/css' rel="stylesheet")
 block content
-  h1 测试
+  div.page-title
+    span.icon
+      <svg t="1616136587964" class="icon" viewBox="0 0 1109 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2143" width="200" height="200"><path d="M483.84 560.298667c24.234667 24.149333 24.234667 60.330667 0 84.48s-66.304 30.122667-90.453333 5.973333a229.461333 229.461333 0 0 1 0-325.802667L634.88 83.626667c90.453333-90.538667 235.264-90.538667 325.802667 0s96.512 229.290667 5.973333 319.744l-72.362667 72.448c-24.149333 24.149333-60.330667 24.149333-90.453333-6.058667s-24.149333-60.330667 0-84.48l72.362667-72.362667c42.24-42.24 36.181333-108.629333 0-144.896S767.488 119.808 725.333333 162.133333L483.925333 403.370667a112.981333 112.981333 0 0 0 0 156.928z m90.624-90.538667c-24.149333-24.149333-24.149333-60.330667 5.973333-90.453333s60.330667-24.149333 84.48 0a229.461333 229.461333 0 0 1 0 325.802666L423.594667 946.346667c-90.453333 90.453333-241.408 96.597333-331.946667 5.973333s-84.48-241.322667 6.058667-331.776l72.448-72.448c24.149333-24.149333 66.389333-30.122667 90.453333-5.973333s18.176 66.304-5.973333 90.453333l-72.448 72.448c-42.24 42.24-42.24 114.602667 0 156.842667s108.629333 36.181333 150.869333-5.973334l241.408-241.408c42.154667-42.24 42.154667-102.570667 0-144.810666z" p-id="2144"></path></svg>
+    span.name 短链接生成服务
+  div.form-box
+    p.form-item-input
+      label(for="url") 链接：
+      input#long-url(type ="text" name="url" placeholder="请输入链接")
+    p.form-item-button
+      button#submit-button 生成短链接
+  div.page-result
+    h3.header 历史记录
+    div#page-result-box
+
+  script(src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js")
+  script(src="https://cdn.bootcdn.net/ajax/libs/fingerprintjs2/2.1.4/fingerprint2.min.js")
+  script(src="/public/js/pages/url/create.js")
 
   

@@ -20,15 +20,36 @@ class ShortUrlService extends Service {
   }
   
   /**
+   * 通过userid值获取生成记录
+   * @param {*} userid 
+   */
+  async getLogs(userid) {
+    let logs = await this.ctx.model.ShortUrl.find({
+      userid,
+    }).sort({_id:-1});
+    if (!logs) {
+      return false;
+    }
+    logs = logs.map(item => {
+      return {
+        shortUrl:'https://' + this.ctx.host + '/short/' + item.shortUrl,
+        longUrl: item.longUrl,
+      };
+    });
+    return logs;
+  }
+  /**
    * 生成短链接
    * @param {String} longUrl 长链接 
+   * @param {String} userid 用户key fingerprint生成
    */
 
-   async createUrl(longUrl) {
+   async createUrl(longUrl, userid) {
     let shortUrl = '';
     // 判断数据库中是否已经有生成的短链接
     const exitOne = await this.ctx.model.ShortUrl.findOne({
       longUrl,
+      userid,
       expireTime: {
         $gte: Date.now()
       }
@@ -37,10 +58,11 @@ class ShortUrlService extends Service {
       shortUrl = exitOne.shortUrl;
     } else {
       const now = Date.now();
-      shortUrl = this._hash(longUrl);
+      shortUrl = this._hash(longUrl + userid);
       this.ctx.model.ShortUrl.create({
         shortUrl,
         longUrl,
+        userid,
         expireTime: (now + 86400000),
       });
     }
